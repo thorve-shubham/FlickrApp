@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+    <div>
+        <h1>Food Images Flickr App....</h1>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-4" *ngFor="let photo of images" style="margin-bottom: 20px;">
+            <img [src]="photo.url" style="border-radius: 10px;width: 100%;height:300px">
+        </div>
+    </div>
+    <div *ngIf="loading" class="d-flex justify-content-center">
+        Loading...
+    </div>
+</div>
+<div class="d-flex justify-content-around">
+    <div><button class="btn btn-dark" (click)="prev()" [disabled]="PageNo==1">Prev</button></div>
+    <div>{{ PageNo }}</div>
+    <div><button class="btn btn-dark" (click)="next()" [disabled]="PageNo==total">Next</button></div>
+</div>
+<br>
